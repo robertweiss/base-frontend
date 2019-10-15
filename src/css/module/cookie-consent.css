@@ -1,0 +1,47 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.cookie-notice {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-top: 1px solid $red;
+    padding: 1.5rem 1rem;
+    font-size: 1em;
+    text-align: left;
+    z-index: 1;
+    animation: fadeIn .5s .5s forwards;
+    opacity: 0;
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+.cookie-notice--button {
+    position: relative;
+    margin-right: 1rem;
+    line-height: .5;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    box-shadow: none;
+    color: $black;
+    cursor: pointer;
+
+    svg {
+        width: 2rem;
+    }
+}

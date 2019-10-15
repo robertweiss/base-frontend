@@ -1,0 +1,122 @@
+.ui-center {
+    text-align: center;
+}
+
+.ui-right {
+    text-align: right;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.ui-highlight {
+    padding: .5rem;
+    border: 1px solid $red;
+    margin-bottom: 2rem;
+
+    @include mq-min($tn) {
+        padding: .75rem;
+    }
+
+    @include mq-min($sm) {
+        padding: 1rem;
+    }
+}
+
+.ui-strikethrough {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: calc(50% - 2px);
+        width: 100%;
+        height: 1px;
+        background: $black;
+    }
+}
+
+.ui-strikethrough__white {
+    &:after {
+        background: $white;
+    }
+}
+
+.ui-strikethrough__red {
+    &:after {
+        background: $red;
+    }
+}
+
+.ui-breakme {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: $grey;
+}
+
+.ui-iframewrap,
+.ui-videowrap {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Inline Images
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.img__inline {
+    margin-bottom: 1rem;
+}
+
+.img__left,
+.img__right,
+.align_left,
+.align_right {
+    margin-bottom: 1rem;
+
+    @include mq-max($mb) {
+        width: 100% !important;
+
+        img {
+            display: block;
+            margin: 0 auto 1rem;
+        }
+    }
+}
+
+.img__left,
+.align_left {
+    float: left;
+    margin-right: 1rem;
+}
+
+.img__right,
+.align_right {
+    float: right;
+    margin-left: 1rem;
+}
+
+.align_center {
+    margin: 0 auto 1rem;
+}

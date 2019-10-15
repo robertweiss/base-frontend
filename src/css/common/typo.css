@@ -1,0 +1,181 @@
+html {
+    font-size: 1em;
+
+    @include mq-min($big) {
+        font-size: 1.1em;
+    }
+}
+
+body,
+input,
+textarea,
+button,
+select {
+    color: $black;
+    font-family: $primaryFont;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol {
+    margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $secondaryFont;
+    line-height: 1.2;
+    color: $grey;
+}
+
+h1 {
+    font-size: $head;
+    margin-bottom: 1.5rem;
+    color: $red;
+
+    @include mq-min($sm) {
+        font-size: $display;
+        margin-bottom: 3rem;
+    }
+}
+
+h2 {
+    font-size: $lead;
+    margin-bottom: .35rem;
+}
+
+h3 {
+    font-size: $sublead;
+    margin-bottom: .35rem;
+}
+
+h4 {
+    font-size: $copy;
+    margin-bottom: 0;
+}
+
+p,
+ul,
+ol,
+dl,
+.ui-highlight {
+    line-height: 1.4;
+
+    &:empty {
+        display: none;
+    }
+
+    @include mq-min($lg) {
+        line-height: 1.55;
+    }
+}
+
+p,
+ul,
+dl {
+    font-size: $copy;
+    margin-bottom: 1rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include mq-max($sm) {
+        font-size: $copy * 1.05;
+    }
+}
+
+ul,
+ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+dl {
+    margin-top: 0;
+}
+
+dd {
+    margin-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $red;
+}
+
+small,
+.small,
+.small > *,
+.caption {
+    font-size: $caption;
+    line-height: 1.3;
+}
+
+.basic-page--body,
+.block__text,
+.block__accordion,
+.block__keydata,
+.related-pages,
+.job-item--body,
+.job--body {
+    ul:not(.MarkupPagerNav),
+    ol {
+        padding-left: 0;
+        list-style-type: none;
+
+        li {
+            position: relative;
+            margin-bottom: .5rem;
+            margin-left: 1em;
+
+            &:before {
+                position: absolute;
+                color: $red;
+                margin-left: -1em;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    ul:not(.MarkupPagerNav) {
+        li {
+            &:before {
+                content: "● \0020";
+                top: .45em;
+                left: -.2rem;
+                font-size: .75em;
+                line-height: 1;
+            }
+        }
+    }
+
+    ol {
+        counter-reset: item;
+
+        li {
+            &:before {
+                content: counter(item) '.';
+                counter-increment: item;
+            }
+        }
+
+        li:nth-last-child(n+10),
+        li:nth-last-child(n+10) ~ li {
+            margin-left: 1.5rem;
+
+            &:before {
+                margin-left: -1.5rem;
+            }
+        }
+    }
+}

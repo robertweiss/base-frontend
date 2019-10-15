@@ -1,0 +1,27 @@
+@media print {
+    .mainnav,
+    footer {
+        display: none;
+    }
+
+    html {
+        font-size: 1em;
+    }
+
+    body {
+        background: white;
+        width: 90%;
+        margin: 0 auto;
+        overflow: visible !important;
+        display: block;
+    }
+
+    header {
+        background: $white !important;
+        margin-bottom: 2rem !important;
+    }
+
+    .header--logo {
+        position: relative !important;
+    }
+}

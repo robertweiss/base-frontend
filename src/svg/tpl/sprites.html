@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<title>SVG sprite preview</title>
+
+<style type="text/css">
+    *,:after,:before{box-sizing:border-box}body,ul{padding:0;margin:0;font-family:Helvetica,sans-serif;color:#555}.main{:margin 0 auto;width:90%;max-width:1500px;margin:3rem auto 0}h1{margin:0 0 2rem;font-size:1.5rem;float:left}.bg-buttons,.ranges{float:right}.bg-buttons button{position:relative;display:inline-block;border:1px solid #444;width:24px;height:24px;border-radius:2px;margin-right:5px;cursor:pointer;outline:0}.icon,.ranges{margin-right:10px}.bg-buttons button.active:after{position:absolute;content:'\00D7';top:10px;left:7px;color:#000;text-shadow:0 0 3px #fff;border-radius:50%;line-height:0}.bg-buttons .white{background:#FFF}.bg-buttons .gray{background:#999}.bg-buttons .black{background:#000}.ranges span{position:relative;top:-.25rem;font-size:.7rem}.icons{clear:both}.icon{vertical-align:top;display:inline-block;width:200px;margin-bottom:10px}.icon-box{position:relative;width:200px;height:200px;padding:10px;margin-bottom:5px;border:1px solid #444;border-radius:2px;transition:.2s}.icon h2{font-size:.85rem;margin:0 0 2px}footer,textarea{font-size:.6rem}textarea{margin:0;width:100%;word-wrap:break-word;height:65px;border:0;font-family:"Office Code Pro",Courier;resize:none}svg{position:absolute;top:50%;left:50%;transform-origin:0 0;-webkit-transform-origin:0 0;transform:scale(2)translate(-50%,-50%);-webkit-transform:scale(2)translate(-50%,-50%);border:1px dotted rgba(120,120,120,.75)}footer{padding:0 10px;text-align:right}
+
+{{#shapes}}
+    {{#selector.dimensions}}{{expression}}{{^last}}, {{/last}}{{/selector.dimensions}} { width: 1em; height: calc({{height.outer}}em / {{width.outer}}); }
+{{/shapes}}
+</style>
+
+
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+    {{#shapes}} {{{svg}}} {{/shapes}}
+</svg>
+
+<div class="main">
+    <h1>SVG sprites preview</h1>
+
+    <div class="bg-buttons">
+        <button class="white" data-bg="#fff"></button>
+        <button class="gray active" data-bg="#aaa"></button>
+        <button class="black" data-bg="#000"></button>
+    </div>
+
+    <div class="ranges">
+        <span>2&times;</span>
+        <input type="range" min=".5" max="4" value="2" step=".5" onchange="updateSize(this.value);">
+    </div>
+
+    <ul class="icons">
+    {{#shapes}}
+        <li class="icon">
+            <div class="icon-box" style="background-color: #aaa;">
+
+                <svg class="{{#selector.dimensions}}{{#last}}{{#classname}}{{raw}}{{/classname}}{{/last}}{{/selector.dimensions}}">
+                    <use xlink:href="#{{name}}"></use>
+                </svg>
+
+            </div>
+            <h2>{{name}}</h2>
+            <textarea onClick="this.select();"><svg class="{{#selector.dimensions}}{{#last}}{{#classname}}{{raw}}{{/classname}}{{/last}}{{/selector.dimensions}}"><use xlink:href="/site/templates/dist/svg/sprites.svg#{{name}}"></use></svg></textarea>
+            <textarea onClick="this.select();"><svg class="{{#selector.dimensions}}{{#last}}{{#classname}}{{raw}}{{/classname}}{{/last}}{{/selector.dimensions}}">{{svg}}</svg></textarea>
+    {{/shapes}}
+    </ul>
+</div>
+
+<hr>
+
+<footer>
+    <p><span class="date"></span> | <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+</footer>
+
+<script>
+    var currentdate = new Date();
+    var datetime = currentdate.getDate() + "." + (currentdate.getMonth()+1) + "." + currentdate.getFullYear() + ", " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+    document.querySelector('.date').innerHTML = datetime;
+
+    var boxes = document.querySelectorAll('.icon-box');
+    var bgButtons = document.querySelectorAll('.bg-buttons button');
+
+    for (var i = 0; i < bgButtons.length; i++) {
+        bgButtons[i].addEventListener('click', function(){
+            var bg = this.dataset.bg;
+            for (var j = 0; j < boxes.length; j++) {
+                boxes[j].style.backgroundColor = bg;
+                if (bg === '#000') {
+                    boxes[j].querySelector('svg').style.fill = 'white';
+                } else {
+                    boxes[j].querySelector('svg').style.fill = 'black';
+                }
+            }
+
+            for (var k = 0; k < bgButtons.length; k++) {
+                bgButtons[k].classList.remove('active');
+            }
+            this.classList.add('active');
+        });
+    }
+
+    function updateSize(val) {
+        document.querySelector('.ranges span').innerHTML = val+"&times;";
+        for (var l = 0; l < boxes.length; l++) {
+            boxes[l].querySelector('svg').style.transform = "scale("+val+") translate(-50%, -50%)";
+            boxes[l].querySelector('svg').style.webkitTransform = "scale("+val+") translate(-50%, -50%)";
+        }
+    }
+</script>
+
+</body>
+</html>

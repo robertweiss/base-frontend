@@ -1,0 +1,47 @@
+.home {
+    margin-top: -1.5rem;
+
+    @include mq-min($sm) {
+        margin-top: -6rem;
+    }
+}
+
+.home--search-wrap {
+    position: relative;
+    margin-bottom: 1rem;
+    z-index: 2;
+
+    @include mq-min($sm) {
+        margin-bottom: 2rem;
+    }
+}
+
+.home--search--bg-img {
+    position: relative;
+    padding-bottom: 66.67%;
+    overflow: hidden;
+
+    @include mq-min($sm) {
+        padding-bottom: 56.25%;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+    }
+}
+
+.home--search {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 2rem);
+
+    @include mq-min($tn) {
+        width: 80%;
+    }
+}

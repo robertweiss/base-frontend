@@ -1,0 +1,58 @@
+footer {
+    position: relative;
+    background: $red;
+    z-index: 4;
+}
+
+.footer--inner {
+    max-width: $max;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    color: $white;
+    padding: 1rem .5rem;
+    font-size: $caption;
+
+    @include mq-min($sm) {
+        padding: 1rem;
+    }
+
+    a {
+        color: $white;
+    }
+}
+
+.footer--copyright {
+    padding-right: 1rem;
+    line-height: 1.3;
+}
+
+.footer--nav {
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+        align-items: baseline;
+    }
+
+    li {
+        margin-left: 1rem;
+        font-size: $caption;
+    }
+
+    svg {
+        position: relative;
+        top: 4px;
+        fill: $white;
+    }
+}
+
+.footer--nav--social {
+    white-space: nowrap;
+
+    a:not(:first-child) {
+        margin-left: 1rem;
+    }
+}
