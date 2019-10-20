@@ -3,13 +3,13 @@ Colors
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 $white: #fff;
-$lightestgrey: #ebebeb;
-$lightgrey: #87888a;
-$grey: #646567;
-$black: #000;
+$lightgrey: #bec2c6;
+$grey: #535e69;
+$black: #202428;
+$blacker: #000;
 
 $green: #349e30;
-$red: #c1002b;
+$red: #af2d2d;
 $orange: #ff9600;
 
 $facebook: #3b5998;
@@ -44,8 +44,8 @@ $subhead: rem(26);
 $head: rem(29);
 $display: rem(34);
 
-$primaryFont: Optima, Helvetica, Arial, sans-serif;
-$secondaryFont: Frutiger, Helvetica, Arial, sans-serif;
+$primaryFont: Helvetica, Arial, sans-serif;
+$secondaryFont: Helvetica, Arial, sans-serif;
 
 
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––

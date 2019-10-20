@@ -20,8 +20,4 @@
         background: $white !important;
         margin-bottom: 2rem !important;
     }
-
-    .header--logo {
-        position: relative !important;
-    }
 }

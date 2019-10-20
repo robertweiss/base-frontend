@@ -37,7 +37,6 @@ h4 {
 h1 {
     font-size: $head;
     margin-bottom: 1.5rem;
-    color: $red;
 
     @include mq-min($sm) {
         font-size: $display;
@@ -119,12 +118,7 @@ small,
 }
 
 .basic-page--body,
-.block__text,
-.block__accordion,
-.block__keydata,
-.related-pages,
-.job-item--body,
-.job--body {
+.block__text {
     ul:not(.MarkupPagerNav),
     ol {
         padding-left: 0;
@@ -137,7 +131,6 @@ small,
 
             &:before {
                 position: absolute;
-                color: $red;
                 margin-left: -1em;
             }
 
@@ -150,7 +143,7 @@ small,
     ul:not(.MarkupPagerNav) {
         li {
             &:before {
-                content: "● \0020";
+                content: "– \0020";
                 top: .45em;
                 left: -.2rem;
                 font-size: .75em;

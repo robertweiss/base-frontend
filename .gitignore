@@ -1,0 +1,15 @@
+*.tgz
+/*/
+!/src
+!/public
+/public/*
+!/public/site
+!/public/favicon
+/public/site/assets
+/public/site/config.php
+/public/site/ready.php
+/public/site/.htaccess
+/public/site/templates/.htaccess
+/public/site/templates/dist
+.pull-config
+phploy.ini

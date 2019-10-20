@@ -98,52 +98,18 @@ Status
 .ui-warning,
 .ui-success {
     font-weight: bold;
-
-    &.ui-highlight {
-        position: relative;
-        padding: .5rem 1rem .5rem 1.75rem;
-
-        &:before {
-            content: '!';
-            position: absolute;
-            left: .55rem;
-            top: center;
-            font-size: $head;
-            font-family: $secondaryFont;
-            line-height: 1;
-            color: inherit;
-        }
-    }
 }
 
 .ui-error {
     color: $red;
-
-    &.ui-highlight {
-        border-color: $red;
-    }
 }
 
 .ui-warning {
     color: $orange;
-
-    &.ui-highlight {
-        border-color: $orange;
-    }
 }
 
 .ui-success {
     color: $green;
-
-    &.ui-highlight {
-        border-color: $green;
-        padding-left: 2.25rem;
-
-        &:before {
-            content: 'L';
-            transform: translateY(-50%) scaleX(-1) rotate(-35deg);
-        }
-    }
 }
 
 

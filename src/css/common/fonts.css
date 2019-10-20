@@ -3,45 +3,13 @@ FontFaces
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 
-@font-face {
-    font-family: 'Frutiger';
+/* @font-face {
+    font-family: 'Fontname';
     font-display: swap;
     font-weight: normal;
     font-style: normal;
     src:
-        url('../fonts/frutiger/39247E_0_0.woff2') format('woff2'),
-        url('../fonts/frutiger/39247E_0_0.woff') format('woff');
-}
+        url('../fonts/fontname.woff2') format('woff2'),
+        url('../fonts/fontname.woff') format('woff');
+} */
 
-
-@font-face {
-    font-family: 'Frutiger';
-    font-display: swap;
-    font-weight: bold;
-    font-style: normal;
-    src:
-        url('../fonts/frutiger/39247E_1_0.woff2') format('woff2'),
-        url('../fonts/frutiger/39247E_1_0.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Optima';
-    font-display: swap;
-    font-weight: normal;
-    font-style: normal;
-    src:
-        url('../fonts/optima/39247E_2_0.woff2') format('woff2'),
-        url('../fonts/optima/39247E_2_0.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Optima';
-    font-display: swap;
-    font-weight: bold;
-    font-style: normal;
-    src:
-        url('../fonts/optima/39247E_3_0.woff2') format('woff2'),
-        url('../fonts/optima/39247E_3_0.woff') format('woff');
-}

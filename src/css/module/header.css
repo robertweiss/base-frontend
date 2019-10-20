@@ -1,12 +1,4 @@
 header {
-    position: relative;
-    background: $red;
-    margin-bottom: 1.5rem;
-    z-index: 3;
-
-    @include mq-min($sm) {
-        margin-bottom: 6rem;
-    }
 }
 
 .header--inner {
@@ -19,31 +11,11 @@ header {
 
     @include mq-min($sm) {
         flex-flow: row nowrap;
-        justify-content: flex-end;
     }
 }
 
 .header--logo {
-    z-index: 1;
-
-    @include mq-max($sm) {
-        margin: 0 auto .5rem;
-
-        img {
-            display: block;
-            width: 150px;
-        }
-    }
-
-    @include mq-min($sm) {
-        position: absolute;
-        left: 1rem;
-        top: 0;
-    }
-}
-
-.header--nav {
-    @include mq-max($sm) {
-        margin-bottom: .5rem;
+    img {
+        display: block;
     }
 }

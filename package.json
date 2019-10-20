@@ -1,7 +1,7 @@
 {
     "name": "frontend",
     "homepage": "http://base.test/",
-    "version": "1.7",
+    "version": "1.7.0",
     "description": "Dev and build workflow based on webpack 4",
     "author": "Robert Weiss",
     "license": "ISC",

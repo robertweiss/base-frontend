@@ -4,7 +4,7 @@
     padding: .5rem .8rem .4rem;
     color: $red;
     background: $white;
-    border: solid 1px $red;
+    border: solid 1px $grey;
     text-align: center;
     transition: .1s;
     border-radius: 3px;
@@ -16,8 +16,7 @@
     &:hover,
     &:hover:focus {
         color: $white;
-        background: $red;
-        border: 1px solid $red;
+        background: $grey;
     }
 
     &:active {
@@ -25,7 +24,7 @@
     }
 
     &:focus {
-        background: $lightestgrey;
+        background: $lightergrey;
         outline: none;
     }
 }
