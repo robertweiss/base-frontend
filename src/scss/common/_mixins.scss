@@ -1,0 +1,55 @@
+/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Value converter
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@function rem($size) {
+    $remSize: $size / 16;
+
+    @return #{$remSize}rem;
+}
+
+@function em($size) {
+    $emSize: $size / 16;
+
+    @return #{$emSize}em;
+}
+
+/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Media Queries
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@mixin mq($resMin, $resMax) {
+    @media (min-width: $resMin) and (max-width: calc(#{$resMax} - .001em)) {
+        @content;
+    }
+}
+
+@mixin mq-max($res) {
+    @media (max-width: calc(#{$res} - .001em)) {
+        @content;
+    }
+}
+
+@mixin mq-min($res) {
+    @media (min-width: $res) {
+        @content;
+    }
+}
+
+@mixin mq-h($resMin, $resMax) {
+    @media (min-height: $resMin) and (max-height: calc((#{$resMax} - .001em))) {
+        @content;
+    }
+}
+
+@mixin mq-max-h($res) {
+    @media (max-height: calc((#{$res} - .001em))) {
+        @content;
+    }
+}
+
+@mixin mq-min-h($res) {
+    @media (min-height: $res) {
+        @content;
+    }
+}

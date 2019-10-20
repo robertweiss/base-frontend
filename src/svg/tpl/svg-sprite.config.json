@@ -34,9 +34,9 @@
             "sprite": "sprites.svg",
             "inline": true,
             "render": {
-                "css": {
-                    "dest": "../../../../../src/css/common/icons.css",
-                    "template": "./tpl/sprites.css"
+                "scss": {
+                    "dest": "../../../../../src/scss/common/_icons.scss",
+                    "template": "./tpl/sprites.scss"
                 }
             },
             "example": {

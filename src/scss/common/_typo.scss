@@ -62,8 +62,7 @@ h4 {
 p,
 ul,
 ol,
-dl,
-.ui-highlight {
+dl {
     line-height: 1.4;
 
     &:empty {
@@ -78,7 +77,6 @@ dl,
 p,
 ul,
 dl {
-    font-size: $copy;
     margin-bottom: 1rem;
 
     &:last-child {
@@ -86,7 +84,7 @@ dl {
     }
 
     @include mq-max($sm) {
-        font-size: $copy * 1.05;
+        font-size: calc(#{$copy} * 1.05);
     }
 }
 
@@ -106,7 +104,7 @@ dd {
 
 a {
     text-decoration: none;
-    color: $red;
+    color: $grey;
 }
 
 small,

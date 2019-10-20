@@ -1,0 +1,16 @@
+footer {
+}
+
+.footer--inner {
+    max-width: $max;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1rem .5rem;
+
+    @include mq-min($sm) {
+        padding: 1rem;
+    }
+}

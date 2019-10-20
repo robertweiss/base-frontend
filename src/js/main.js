@@ -3,6 +3,7 @@ import {
 } from 'array.from';
 import svg4everybody from 'svg4everybody';
 
-import {} from '../css/style.css';
+import {} from '../scss/style.scss';
+import './partials/cookie';
 
 svg4everybody();

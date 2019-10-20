@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     background: white;
-    border-top: 1px solid $red;
+    border-top: 1px solid $grey;
     padding: 1.5rem 1rem;
     font-size: 1em;
     text-align: left;
@@ -38,10 +38,11 @@
     outline: none;
     padding: 0;
     box-shadow: none;
-    color: $black;
+    color: $grey;
     cursor: pointer;
 
     svg {
         width: 2rem;
+        fill: $grey;
     }
 }

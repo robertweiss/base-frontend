@@ -116,59 +116,51 @@ Status
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 Checkbox and Radio
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* https://codepen.io/jensimmons/pen/KKPzxJa */
 
-.ui-checkbox,
-.ui-radio {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
+$checkboxSize: 1.25rem;
 
-    &:checked + .ui-label__checkbox span,
-    &:checked + .ui-label__radio span {
-        background: $grey;
+@supports (-webkit-appearance: none) {
+    .ui-checkbox,
+    .ui-radio {
+        position: relative;
+        top: $checkboxSize / 4;
+        -webkit-appearance: none;
+        width: $checkboxSize;
+        height: $checkboxSize;
+        border: 1px solid $grey;
 
-        &:after {
-            position: absolute;
-            content: 'L';
-            font-weight: bold;
-            font-size: $sublead;
-            line-height: 0;
-            top: 51%;
-            left: 45%;
-            transform: translateX(-50%) scaleX(-1) rotate(-35deg);
-            color: $white;
+        &:focus {
+            border: 1px solid $black;
+            outline: none;
+        }
+
+        &:checked {
+            position: relative;
+            background: none; /* iOS Safari */
+
+            &:after {
+                position: absolute;
+                content: 'L';
+                font-family: 'Arial', sans-serif;
+                font-weight: bold;
+                font-size: $checkboxSize * .8;
+                line-height: 0;
+                top: 45%;
+                left: 45%;
+                transform: translateX(-50%) scaleX(-.75) rotate(-32.5deg);
+            }
+        }
+
+        + .ui-label {
+            display: inline-block;
         }
     }
 
-    &:focus + .ui-label__checkbox span,
-    &:focus + .ui-label__radio span {
-        border: solid 1px $grey;
-        box-shadow: inset 1px 1px 4px 0 $grey;
+    .ui-radio {
+        border-radius: 50%;
     }
 }
-
-.ui-label__checkbox,
-.ui-label__radio {
-    position: relative;
-    cursor: pointer;
-    margin-top: .2rem;
-    margin-left: 2rem;
-    margin-bottom: .4rem;
-
-    span {
-        position: absolute;
-        left: -2rem;
-        top: -.25rem;
-        border: solid 1px $grey;
-        border-radius: 3px;
-        display: inline-block;
-        width: 1.5rem;
-        height: 1.5rem;
-        background: $white;
-        transition: .1s;
-    }
-}
-
 
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 Select

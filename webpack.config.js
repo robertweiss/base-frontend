@@ -83,7 +83,7 @@ module.exports = {
             },
 
             {
-                test: /\.(css)$/,
+                test: /\.(scss)$/,
                 use: [
                     DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
                     {
@@ -96,6 +96,9 @@ module.exports = {
                     {
                         loader: 'postcss-loader',
                         options: PostCSSConfig
+                    },
+                    {
+                        loader: 'sass-loader'
                     }
                 ]
             },
@@ -143,7 +146,7 @@ module.exports = {
         ifEnv.dev(
             new BrowserSyncPlugin(
                 {
-                    files: ['public/site/templates/**/*.php', '!public/site/templates/dist/js.php'],
+                    files: ['public/site/templates/**/*.php', 'public/site/templates/views/**/*.latte', '!public/site/templates/dist/js.php'],
                     notify: false,
                     host: 'localhost',
                     port: 3000,

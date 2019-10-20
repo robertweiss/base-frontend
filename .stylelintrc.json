@@ -29,6 +29,9 @@
                     "font-face",
                     "mixin",
                     "include",
+                    "each",
+                    "function",
+                    "return",
                     "content",
                     "lost"
                 ]
