@@ -1,6 +1,23 @@
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Value converter
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+// Helper functions
+
+@function get-font-size($name) {
+    @return rem(map-get($fontSize, $name));
+}
+
+@function fs($name) {
+    @return get-font-size($name);
+}
+
+@function get-breakpoint($name) {
+    @return em(map-get($breakpoint, $name));
+}
+
+@function bp($name) {
+    @return get-breakpoint($name);
+}
+
+
+// Value converter
 
 @function rem($size) {
     $remSize: $size / 16;
@@ -14,42 +31,64 @@ Value converter
     @return #{$emSize}em;
 }
 
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Media Queries
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+// MiMa Mixin for responsive single values
+// e.G. @include mima(font-size, copy, lead, sm, big);
+// Variable object keys are found in _variables.scss
 
-@mixin mq($resMin, $resMax) {
-    @media (min-width: $resMin) and (max-width: calc(#{$resMax} - .001em)) {
-        @content;
+@mixin mima($name, $minVal, $maxVal, $minWidthVar: 'smb', $maxWidthVar: 'max') {
+    @if $name == 'font-size' and type-of($minVal) != 'number' {
+        $minVal: map-get($fontSize, $minVal) / 16;
+        $maxVal: map-get($fontSize, $maxVal) / 16;
+    }
+    $diffVal: $maxVal - $minVal;
+    $minWidth: map-get($breakpoint, $minWidthVar) / 16;
+    $maxWidth: map-get($breakpoint, $maxWidthVar) / 16;
+    $diffWidth: $maxWidth - $minWidth;
+    #{$name}: calc(#{$minVal}rem + #{$diffVal} * ((100vw - #{$minWidth}rem) / #{$diffWidth}));
+
+    @media (max-width: calc(#{$minWidth}em - .001em)) {
+        #{$name}: #{$minVal}rem;
+    }
+
+    @media (min-width: #{$maxWidth}em) {
+        #{$name}: #{$maxVal}rem;
     }
 }
 
-@mixin mq-max($res) {
-    @media (max-width: calc(#{$res} - .001em)) {
-        @content;
-    }
-}
 
-@mixin mq-min($res) {
-    @media (min-width: $res) {
-        @content;
-    }
-}
+// Media Queries
 
-@mixin mq-h($resMin, $resMax) {
-    @media (min-height: $resMin) and (max-height: calc((#{$resMax} - .001em))) {
-        @content;
-    }
-}
+@mixin mq($type, $val1, $val2: null) {
+    $allowedMqTypes: (min, max, min-h, max-h, min-max, minmax, min-max-h, minmax-h);
+    @if (index($allowedMqTypes, $type) == null) { @error 'Media Query Typ "#{$type}" wurde nicht gefunden'; }
 
-@mixin mq-max-h($res) {
-    @media (max-height: calc((#{$res} - .001em))) {
-        @content;
-    }
-}
+    @if type-of($val1) != 'number' { $val1: map-get($breakpoint, $val1); }
+    $val1: $val1 / 16;
+    @if $type == max or $type == max-h { $val1: $val1 - .001; }
 
-@mixin mq-min-h($res) {
-    @media (min-height: $res) {
-        @content;
+    @if $type == min-max or $type == minmax or $type == min-max-h or $type == minmax-h {
+        @if ($val2 == null) { @error 'Angabe für $val2 fehlt'; }
+
+        @if type-of($val2) != 'number' { $val2: map-get($breakpoint, $val2); }
+        $val2: #{$val2 / 16 - .001};
+    }
+
+    @if $type == min {
+        @media (min-width: #{$val1}em) { @content; }
+    }
+    @else if $type == max {
+        @media (max-width: #{$val1}em) { @content; }
+    }
+    @else if $type == min-h {
+        @media (min-height: #{$val1}em) { @content; }
+    }
+    @else if $type == max-h {
+        @media (max-height: #{$val1}em) { @content; }
+    }
+    @else if $type == min-max or $type == minmax {
+        @media (min-width: #{$val1}em) and (max-width: #{$val2}em) { @content; }
+    }
+    @else if $type == min-max-h or $type == minmax-h {
+        @media (min-height: #{$val1}em) and (max-height: #{$val2}em) { @content; }
     }
 }

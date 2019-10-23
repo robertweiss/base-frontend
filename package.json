@@ -74,6 +74,7 @@
     "dependencies": {
         "@babel/runtime": "^7.0.0",
         "array.from": "^1.0.3",
+        "family.scss": "^1.0.8",
         "normalize-opentype.css": "^0.2.4",
         "svg4everybody": "^2.1.9"
     },

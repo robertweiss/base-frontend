@@ -20,29 +20,33 @@ $twitter: #4099ff;
 MQs
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-$ssmb: em(344);
-$smb: em(400);
-$mb: em(480);
-$tn: em(640);
-$sm: em(768);
-$md: em(900);
-$lg: em(1040);
-$big: em(1280);
-$max: em(1360);
+$breakpoint: (
+    ssmb: 344,
+    smb: 400,
+    mb: 480,
+    tn: 640,
+    sm: 768,
+    md: 900,
+    lg: 1040,
+    big: 1280,
+    max: 1360
+);
 
 
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 Typo
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-$subcaption: rem(12);
-$caption: rem(14);
-$copy: rem(16);
-$sublead: rem(19);
-$lead: rem(22);
-$subhead: rem(26);
-$head: rem(29);
-$display: rem(34);
+$fontSize: (
+    'subcaption': 12,
+    'caption': 14,
+    'copy': 16,
+    'sublead': 19,
+    'lead': 22,
+    'subhead': 26,
+    'head': 29,
+    'display': 34,
+);
 
 $primaryFont: Helvetica, Arial, sans-serif;
 $secondaryFont: Helvetica, Arial, sans-serif;

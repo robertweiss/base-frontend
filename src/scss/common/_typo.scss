@@ -1,9 +1,5 @@
 html {
     font-size: 1em;
-
-    @include mq-min($big) {
-        font-size: 1.1em;
-    }
 }
 
 body,
@@ -35,27 +31,21 @@ h4 {
 }
 
 h1 {
-    font-size: $head;
-    margin-bottom: 1.5rem;
-
-    @include mq-min($sm) {
-        font-size: $display;
-        margin-bottom: 3rem;
-    }
+    @include mima(font-size, head, display);
 }
 
 h2 {
-    font-size: $lead;
+    font-size: fs(lead);
     margin-bottom: .35rem;
 }
 
 h3 {
-    font-size: $sublead;
+    font-size: fs(sublead);
     margin-bottom: .35rem;
 }
 
 h4 {
-    font-size: $copy;
+    font-size: fs(copy);
     margin-bottom: 0;
 }
 
@@ -69,7 +59,7 @@ dl {
         display: none;
     }
 
-    @include mq-min($lg) {
+    @include mq(min, smb) {
         line-height: 1.55;
     }
 }
@@ -77,14 +67,11 @@ dl {
 p,
 ul,
 dl {
+    font-size: fs(copy);
     margin-bottom: 1rem;
 
     &:last-child {
         margin-bottom: 0;
-    }
-
-    @include mq-max($sm) {
-        font-size: calc(#{$copy} * 1.05);
     }
 }
 
@@ -111,7 +98,7 @@ small,
 .small,
 .small > *,
 .caption {
-    font-size: $caption;
+    font-size: fs(caption);
     line-height: 1.3;
 }
 

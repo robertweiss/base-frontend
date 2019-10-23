@@ -8,7 +8,7 @@
     text-align: center;
     transition: .1s;
     border-radius: 3px;
-    font-size: $copy;
+    font-size: fs(copy);
     cursor: pointer;
     font-family: $secondaryFont;
     font-weight: bold;
@@ -30,20 +30,20 @@
 }
 
 .ui-button__small {
-    font-size: $caption;
+    font-size: fs(caption);
 
-    @include mq-min($sm) {
+    @include mq(min, sm) {
         padding: .25rem .5rem .3rem;
     }
 }
 
 .ui-button__large {
-    font-size: $sublead;
+    font-size: fs(sublead);
     padding: .8rem 1.25rem .7rem;
 }
 
 .ui-button__xlarge {
-    font-size: $lead;
+    font-size: fs(lead);
     padding: .9rem 1.5rem .85rem;
 }
 

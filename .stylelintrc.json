@@ -5,18 +5,17 @@
     "rules": {
         "scss/dollar-variable-colon-space-after": "always",
         "scss/selector-no-redundant-nesting-selector": true,
-        "scss/no-duplicate-dollar-variables": [true, {
-            "ignoreInside": ["at-rule"]
-        }],
         "at-rule-empty-line-before": [
             "always",
             {
                 "except": [
                     "first-nested"
-
                 ],
                 "ignoreAtRules": [
-                    "import"
+                    "import",
+                    "if",
+                    "else",
+                    "include"
                 ]
             }
         ],
@@ -29,10 +28,15 @@
                     "font-face",
                     "mixin",
                     "include",
+                    "if",
+                    "else",
                     "each",
                     "function",
                     "return",
                     "content",
+                    "debug",
+                    "warning",
+                    "error",
                     "lost"
                 ]
             }

@@ -1,8 +1,7 @@
-.mainnav {
-}
+.mainnav { }
 
 .mainnav--toggle {
-    @include mq-min($sm) {
+    @include mq(min, sm) {
         display: none;
     }
 }

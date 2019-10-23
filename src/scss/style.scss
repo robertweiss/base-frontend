@@ -1,6 +1,7 @@
 @import '~normalize-opentype.css/normalize-opentype.css';
-@import 'common/mixins';
+@import '~family.scss/source/src/family';
 @import 'common/variables';
+@import 'common/mixins';
 @import 'common/fonts';
 @import 'common/icons';
 @import 'common/typo';

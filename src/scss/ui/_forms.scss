@@ -19,7 +19,7 @@ Misc
     display: block;
     width: 100%;
     padding: .65rem .65rem .55rem;
-    font-size: $copy;
+    font-size: fs(copy);
     color: $black;
     border: solid 1px $grey;
     background: $white;
@@ -28,13 +28,13 @@ Misc
     border-radius: 0;
     -webkit-appearance: none;
 
-    @include mq-min($tn) {
-        font-size: $sublead;
+    @include mq(min, tn) {
+        font-size: fs(sublead);
         padding: .75rem .75rem .65rem;
     }
 
-    @include mq-min($sm) {
-        font-size: $lead;
+    @include mq(min, sm) {
+        font-size: fs(lead);
     }
 
     &:focus {
@@ -61,28 +61,28 @@ Misc
 
 .ui-input__small {
     padding: .35rem .35rem .25rem;
-    font-size: $copy;
+    font-size: fs(copy);
 }
 
 .ui-input__tiny {
     padding: .15rem .25rem;
     line-height: 1;
     font-weight: normal;
-    font-size: $subcaption;
+    font-size: fs(subcaption);
 }
 
 .ui-input__large {
     padding: .75rem .75rem .6rem;
-    font-size: $copy;
+    font-size: fs(copy);
 
-    @include mq-min($tn) {
+    @include mq(min, tn) {
         padding: .85rem .85rem .7rem;
-        font-size: $sublead;
+        font-size: fs(sublead);
     }
 
-    @include mq-min($sm) {
+    @include mq(min, sm) {
         padding: 1rem 1rem .85rem;
-        font-size: $lead;
+        font-size: fs(lead);
     }
 }
 
@@ -205,15 +205,15 @@ Select
         -webkit-appearance: none;
         -moz-appearance: none;
         text-overflow: '';
-        font-size: $copy;
+        font-size: fs(copy);
 
-        @include mq-min($tn) {
-            font-size: $sublead;
+        @include mq(min, tn) {
+            font-size: fs(sublead);
             padding: .75rem .75rem .65rem;
         }
 
-        @include mq-min($sm) {
-            font-size: $lead;
+        @include mq(min, sm) {
+            font-size: fs(lead);
         }
 
         &::-ms-expand {

@@ -10,46 +10,6 @@
     display: none !important;
 }
 
-.ui-highlight {
-    padding: .5rem;
-    border: 1px solid $red;
-    margin-bottom: 2rem;
-
-    @include mq-min($tn) {
-        padding: .75rem;
-    }
-
-    @include mq-min($sm) {
-        padding: 1rem;
-    }
-}
-
-.ui-strikethrough {
-    position: relative;
-
-    &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: calc(50% - 2px);
-        width: 100%;
-        height: 1px;
-        background: $black;
-    }
-}
-
-.ui-strikethrough__white {
-    &:after {
-        background: $white;
-    }
-}
-
-.ui-strikethrough__red {
-    &:after {
-        background: $red;
-    }
-}
-
 .ui-breakme {
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -95,7 +55,7 @@ Inline Images
 .align_right {
     margin-bottom: 1rem;
 
-    @include mq-max($mb) {
+    @include mq(max, mb) {
         width: 100% !important;
 
         img {

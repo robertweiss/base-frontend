@@ -1,8 +1,7 @@
-footer {
-}
+footer { }
 
 .footer--inner {
-    max-width: $max;
+    max-width: bp(max);
     margin: 0 auto;
     display: flex;
     flex-flow: row nowrap;
@@ -10,7 +9,7 @@ footer {
     justify-content: space-between;
     padding: 1rem .5rem;
 
-    @include mq-min($sm) {
+    @include mq(min, sm) {
         padding: 1rem;
     }
 }
