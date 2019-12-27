@@ -27,7 +27,6 @@ Content
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 main {
-    lost-utility: clearfix;
     margin: 0 auto;
     max-width: bp(max);
     flex: 1 0 auto;
@@ -35,7 +34,7 @@ main {
     overflow: hidden;
 }
 
-.ui-body {
+.ui-container {
     padding-left: 1rem;
     padding-right: 1rem;
 
@@ -57,109 +56,5 @@ main {
     @include mq(min, max) {
         padding-left: 6rem;
         padding-right: 6rem;
-    }
-}
-
-/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-Grid
-––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.ui-row {
-    lost-utility: clearfix;
-    lost-flex-container: row;
-    margin-bottom: 1rem;
-}
-
-.ui-col1of1 {
-    width: 100%;
-}
-
-.ui-col1of2 {
-    @include mq(max, tn) {
-        width: 100%;
-
-        &:not(:last-child) {
-            margin-bottom: 1rem;
-        }
-    }
-
-    @include mq(min, tn) {
-        lost-column: 1/2 2 2rem;
-        flex-basis: calc(49.92% - 1rem);
-        width: calc(49.92% - 1rem);
-        max-width: calc(49.92% - 1rem);
-    }
-}
-
-.ui-col1of3 {
-    width: 100%;
-
-    @include mq(max, tn) {
-        &:not(:last-child) {
-            margin-bottom: 1rem;
-        }
-    }
-
-    @include mq(min, tn) {
-        lost-column: 1/3;
-        flex-basis: calc(33.3% - 21px);
-        width: calc(33.3% - 21px);
-        max-width: calc(33.3% - 21px);
-    }
-}
-
-.ui-col2of3 {
-    @include mq(max, tn) {
-        &:not(:last-child) {
-            margin-bottom: 1.5rem;
-        }
-    }
-
-    @include mq(min, tn) {
-        lost-column: 2/3;
-    }
-}
-
-.ui-col1of4 {
-    @include mq(max, tn) {
-        width: 100%;
-
-        &:not(:last-child) {
-            margin-bottom: 1.5rem;
-        }
-    }
-
-    @include mq(minmax, tn, sm) {
-        lost-column: 1/2 2 2rem;
-
-        &:nth-child(2n) {
-            margin-bottom: 1.5rem;
-        }
-    }
-
-    @include mq(min, sm) {
-        lost-column: 1/4 4 2rem;
-    }
-}
-
-.ui-col3of4 {
-    @include mq(max, tn) {
-        width: 100%;
-
-        &:not(:last-child) {
-            margin-bottom: 1.5rem;
-        }
-    }
-
-    @include mq(minmax, tn, sm) {
-        lost-column: 1/2 2 2rem;
-
-        &:nth-child(2n) {
-            margin-bottom: 1.5rem;
-        }
-    }
-
-    @include mq(min, sm) {
-        lost-column: 3/4 4 2rem;
     }
 }

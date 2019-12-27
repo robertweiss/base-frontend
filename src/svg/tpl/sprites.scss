@@ -9,46 +9,46 @@
 .{{name}} {
     $height: {{height.inner}} / {{width.inner}};
     width: 1em;
-    height: calc(1em * ($height));
+    height: calc(1em * #{$height});
 
-    &-_25x {
+    &-0_25x {
         width: .25em;
-        height: calc(.25em * ($height));
+        height: calc(.25em * #{$height});
     }
 
-    &-_5x {
+    &-0_5x {
         width: .5em;
-        height: calc(.5em * ($height));
+        height: calc(.5em * #{$height});
     }
 
-    &-_75x {
+    &-0_75x {
         width: .75em;
-        height: calc(.75em * ($height));
+        height: calc(.75em * #{$height});
     }
 
     &-1_25x {
         width: 1.25em;
-        height: calc(1.25em * ($height));
+        height: calc(1.25em * #{$height});
     }
 
     &-1_5x {
         width: 1.5em;
-        height: calc(1.5em * ($height));
+        height: calc(1.5em * #{$height});
     }
 
     &-2x {
         width: 2em;
-        height: calc(2em * ($height));
+        height: calc(2em * #{$height});
     }
 
     &-3x {
         width: 3em;
-        height: calc(3em * ($height));
+        height: calc(3em * #{$height});
     }
 
     &-4x {
         width: 4em;
-        height: calc(4em * ($height));
+        height: calc(4em * #{$height});
     }
 }
 

@@ -165,55 +165,33 @@ $checkboxSize: 1.25rem;
 /* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 Select
 ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* https://codepen.io/chriscoyier/pen/zYYZaGP?editors=1100 */
 
-.ui-select-wrap {
-    position: relative;
-    border: 1px solid $grey;
-    overflow: hidden;
-    background: $white;
-
-    &:after {
-        position: absolute;
-        content: '';
-        top: 50%;
-        right: .5rem;
-        width: 0;
-        height: 0;
-        border-left: .5rem solid transparent;
-        border-right: .5rem solid transparent;
-        border-top: .5rem solid $grey;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
-
-    &.is-focussed {
-        border: solid 1px $grey;
-        box-shadow: inset 1px 1px 4px 0 $grey;
-
-        &:after {
-            border-top: .5rem solid $grey;
-        }
-    }
-
+@supports (-webkit-appearance: none) {
     .ui-select {
+        position: relative;
+        display: block;
+        font-size: fs(copy);
+        font-family: $primaryFont;
+        color: $black;
         padding: .65rem .65rem .55rem;
         width: 100%;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-        background-image: none;
-        -webkit-appearance: none;
+        max-width: 100%;
+        margin: 0;
+        border: 1px solid $grey;
+        border-radius: 0;
         -moz-appearance: none;
-        text-overflow: '';
-        font-size: fs(copy);
+        -webkit-appearance: none;
+        appearance: none;
+        // To change the icon color, replace the six chars after %23 with the new hex color
+        background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23808080%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), $lightestyellow;
+        background-repeat: no-repeat;
+        background-position: right .7em top 50%;
+        background-size: .65em auto;
 
         @include mq(min, tn) {
             font-size: fs(sublead);
             padding: .75rem .75rem .65rem;
-        }
-
-        @include mq(min, sm) {
-            font-size: fs(lead);
         }
 
         &::-ms-expand {
@@ -221,7 +199,13 @@ Select
         }
 
         &:focus {
+            border-color: $black;
+            color: $black;
             outline: none;
+        }
+
+        option {
+            font-weight: normal;
         }
     }
 }

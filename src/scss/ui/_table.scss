@@ -1,0 +1,38 @@
+.ui-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.ui-table--head {
+    text-align: left;
+
+    .ui-table--cell {
+        border-top: 1px solid $grey;
+        font-weight: normal;
+    }
+}
+
+.ui-table--body {
+    .ui-table--row:nth-child(odd) {
+        td {
+        }
+    }
+}
+
+.ui-table--cell {
+    padding: .5rem;
+    border-bottom: 1px solid $grey;
+
+    &:not(:last-child) {
+        border-right: 1px solid $grey;
+    }
+
+    @include mq(min, md) {
+        padding: .75rem;
+    }
+}
+
+.ui-table--foot {
+    font-weight: bold;
+}

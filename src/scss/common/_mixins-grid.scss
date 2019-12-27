@@ -1,0 +1,157 @@
+/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+Flexbox Version
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.ui-row {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: - $gridGutter / 2;
+    margin-right: - $gridGutter / 2;
+    @include mima(margin-bottom, 1, 2);
+
+    @include mq(min, md) {
+        margin-left: - $gridGutterLg / 2;
+        margin-right: - $gridGutterLg / 2;
+    }
+}
+
+.ui-row__h-center {
+    justify-content: center;
+}
+
+[class*="ui-col"] {
+    padding-left: $gridGutter / 2;
+    padding-right: $gridGutter / 2;
+    flex: 1 0 100%;
+    max-width: 100%;
+
+    @include mq(min, md) {
+        padding-left: $gridGutterLg / 2;
+        padding-right: $gridGutterLg / 2;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: $gridGutter;
+    }
+
+    &.ui-col__no-mb {
+        margin-bottom: 0;
+    }
+}
+
+@for $i from 1 through $gridCols {
+    .ui-col-#{$i} {
+        flex: 0 0 (100% / $gridCols * $i);
+        max-width: 100% / $gridCols * $i;
+    }
+}
+
+@for $i from 1 through $gridCols {
+    .ui-col-offset-#{$i} {
+        margin-left: 100% / $gridCols * $i;
+    }
+}
+
+@each $bp, $size in $breakpoint {
+    .ui-col-#{$bp} {
+        flex: 1 0 auto;
+    }
+
+    @include mq(min, $bp) {
+        @for $i from 1 through $gridCols {
+            .ui-col-#{$bp}-#{$i} {
+                flex: 0 0 (100% / $gridCols * $i);
+                max-width: 100% / $gridCols * $i;
+            }
+        }
+
+        @for $i from 1 through $gridCols {
+            .ui-col-#{$bp}-offset-#{$i} {
+                margin-left: 100% / $gridCols * $i;
+            }
+        }
+    }
+}
+
+
+/* –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+CSS Grid Version
+When Flexbox version is no longer needed, check for reset attributes and remove (i.e. margin-left: 0)
+––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@supports (display: grid) {
+    .ui-row {
+        display: grid;
+        grid-gap: $gridGutter;
+        grid-template-columns: repeat($gridCols, 1fr);
+        margin-left: 0;
+        margin-right: 0;
+        @include mima(margin-bottom, 1, 2);
+
+        @include mq(min, md) {
+            grid-gap: $gridGutterLg;
+        }
+    }
+
+    .ui-row__h-center {
+        justify-content: center;
+    }
+
+    .ui-row__v-center {
+        align-items: center;
+    }
+
+    [class*="ui-col"] {
+        grid-column: auto / span $gridCols;
+        padding-left: 0;
+        padding-right: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 0;
+        }
+
+        &.ui-col__no-mb {
+            margin-bottom: - $gridGutter;
+
+            @include mq(min, md) {
+                margin-bottom: - $gridGutterLg;
+            }
+        }
+    }
+
+    @for $i from 1 through $gridCols {
+        .ui-col-#{$i} {
+            grid-column: auto / span #{$i};
+            max-width: initial;
+        }
+    }
+
+    @for $i from 1 through $gridCols {
+        .ui-col-offset-#{$i} {
+            grid-column-start: #{$i};
+            margin-left: 0;
+        }
+    }
+
+    @each $bp, $size in $breakpoint {
+        .ui-col-#{$bp} {
+            grid-column: auto / span $gridCols;
+        }
+
+        @include mq(min, $bp) {
+            @for $i from 1 through $gridCols {
+                .ui-col-#{$bp}-#{$i} {
+                    grid-column: auto / span #{$i};
+                    max-width: initial;
+                }
+            }
+
+            @for $i from 1 through $gridCols {
+                .ui-col-#{$bp}-offset-#{$i} {
+                    grid-column-start: #{$i};
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}

@@ -4,9 +4,7 @@ module.exports = {
     sourceMap: true,
     plugins: () => [
         // Pugins are loaded top->down
-        require('lost'),
         require('postcss-center'),
-        require('postcss-responsive-type'),
         require('autoprefixer')({
             grid: true
         }),
