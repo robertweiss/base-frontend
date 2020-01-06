@@ -5,9 +5,7 @@ module.exports = {
     plugins: () => [
         // Pugins are loaded top->down
         require('postcss-center'),
-        require('autoprefixer')({
-            grid: true
-        }),
+        require('autoprefixer')(),
         require('postcss-normalize')({
             forceImport: true
         }),
